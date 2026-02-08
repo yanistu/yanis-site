@@ -14,9 +14,11 @@ export const metadata: Metadata = {
   title: "YANIS – Stratégie digitale & projets numériques",
   description:
     "Consultant en stratégie digitale & projets numériques. J’accompagne les PME en Tunisie à structurer leur présence digitale et obtenir des résultats concrets.",
-    verification: {
-    google: "yL_L1RtEvxF7KerTalF4ub_8sxIT6Q2i44hyUhC-rs4",},
+  verification: {
+    google: "yL_L1RtEvxF7KerTalF4ub_8sxIT6Q2i44hyUhC-rs4",
+  },
 };
+
 
 export default function RootLayout({
   children,
