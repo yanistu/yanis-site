@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://TON-DOMAINE.vercel.app/sitemap.xml",
+    sitemap: "https://yanis-lac.vercel.app/sitemap.xml",
   };
 }
