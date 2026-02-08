@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -22,6 +23,20 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
+                        <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-79SCM188RL"
+            strategy="afterInteractive"
+          />
+
+          <Script id="ga4" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-79SCM188RL');
+            `}
+          </Script>
+
       <body
           className={inter.className}
           style={{
