@@ -13,9 +13,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body style={{ margin: 0, fontFamily: "system-ui, Arial, sans-serif" }}>
+      <body style={{
+              margin: 0,
+              fontFamily: "system-ui, Arial, sans-serif",
+              color: "#111",
+              background: "#fff",
+            }}
+          >
+
         <Header />
-        <main style={{ maxWidth: 1100, margin: "0 auto", padding: "28px 20px" }}>
+        <main style={{ maxWidth: 980, margin: "0 auto", padding: "32px 20px" }}>
+
           {children}
         </main>
         <Footer />

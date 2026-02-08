@@ -1,5 +1,12 @@
 import Link from "next/link";
 import Button from "../components/Button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "YANIS – Stratégie digitale & projets numériques",
+  description:
+    "Consultant en stratégie digitale & projets numériques. J’accompagne les PME en Tunisie à structurer leur présence digitale et obtenir des résultats concrets.",
+};
 
 
 const WHATSAPP_URL =
