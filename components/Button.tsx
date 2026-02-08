@@ -1,35 +1,47 @@
-import clsx from "clsx";
+import Link from "next/link";
 
 type ButtonProps = {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary";
-  external?: boolean;
+  full?: boolean;
+  newTab?: boolean;
 };
 
 export default function Button({
   href,
   children,
   variant = "primary",
-  external,
+  full = true,
+  newTab = true,
 }: ButtonProps) {
-  const isExternal =
-  (external ?? false) || href.startsWith("http") || href.startsWith("mailto:");
+  const base =
+    "inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition";
+  const width = full ? "w-full sm:w-auto" : "";
+  const styles =
+    variant === "primary"
+      ? "bg-neutral-900 text-white hover:bg-neutral-800"
+      : "border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50";
+
+  const className = `${base} ${width} ${styles}`;
+  const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        target={newTab ? "_blank" : undefined}
+        rel={newTab ? "noreferrer" : undefined}
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <a
-      href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noreferrer" : undefined}
-      className={clsx(
-        "inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold transition",
-        "focus:outline-none focus:ring-2 focus:ring-offset-2",
-        variant === "primary"
-          ? "bg-neutral-900 text-white shadow-sm hover:bg-neutral-800 focus:ring-neutral-900"
-          : "bg-white text-[var(--accent)] border border-[rgba(109,40,217,0.25)] hover:bg-[var(--accentSoft)] focus:ring-[var(--accent)]"
-      )}
-    >
+    <Link href={href} className={className}>
       {children}
-    </a>
+    </Link>
   );
 }

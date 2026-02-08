@@ -1,30 +1,19 @@
+import Container from "./Container";
+
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer style={{ borderTop: "1px solid #eee", marginTop: 40 }}>
-      <div
-        style={{
-          maxWidth: 1100,
-          margin: "0 auto",
-          padding: "24px 20px",
-          display: "flex",
-          flexDirection: "column",
-          gap: 8,
-          fontSize: 14,
-        }}
-      >
-        <strong>YANIS</strong>
-        <div>Consultant en stratégie digitale & projets numériques (Tunisie)</div>
-
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-          <span>📞 +216 50 435 185</span>
-          <a href="mailto:yanisghtu@gmail.com">📩 yanisghtu@gmail.com</a>
+    <footer className="border-t border-neutral-200 py-8">
+      <Container>
+        <div className="flex flex-col gap-2 text-sm text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
+          <div>© {year} YANIS — Stratégie digitale & projets numériques</div>
+          <div className="flex gap-4">
+            <span>PME Tunisie</span>
+            <span>•</span>
+            <span>WhatsApp / Email</span>
+          </div>
         </div>
-
-        <div style={{ opacity: 0.8 }}>
-          Secteurs : Services B2B • Commerce/Distribution • Formation/Santé •
-          Immobilier • IT/Startups
-        </div>
-      </div>
+      </Container>
     </footer>
   );
 }
