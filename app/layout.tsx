@@ -1,14 +1,11 @@
-import Script from "next/script";
 import type { Metadata } from "next";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "YANIS – Stratégie digitale & projets numériques",
@@ -19,42 +16,31 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="fr">
-             
-      <body
-          className={inter.className}
-          style={{
-            margin: 0,
-            color: "#111",
-            background: "#fff",
-            ["--accent" as any]: "#6D28D9",      // violet premium
-            ["--accentSoft" as any]: "#F3E8FF",  // violet très léger
-          }}
-        >
-
+      <body className={inter.className}>
         <Header />
-        <main style={{ padding: "56px 0" }}>{children}</main>
-          
-
+        <main className="mx-auto max-w-5xl px-5 py-6">{children}</main>
         <Footer />
-        {/* ✅ GA4 ici, juste avant </body> */}
-    <Script
-      src="https://www.googletagmanager.com/gtag/js?id=G-79SCM188RL"
-      strategy="afterInteractive"
-    />
-    <Script id="ga4" strategy="afterInteractive">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-79SCM188RL');
-      `}
-    </Script>
+
+        {/* ✅ GA4 — TOUJOURS ici, dans <body> */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-79SCM188RL"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-79SCM188RL');
+          `}
+        </Script>
       </body>
     </html>
   );
