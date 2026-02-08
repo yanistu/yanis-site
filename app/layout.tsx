@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "YANIS – Stratégie digitale & projets numériques",
@@ -13,19 +20,21 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body style={{
-              margin: 0,
-              fontFamily: "system-ui, Arial, sans-serif",
-              color: "#111",
-              background: "#fff",
-            }}
-          >
+      <body
+          className={inter.className}
+          style={{
+            margin: 0,
+            color: "#111",
+            background: "#fff",
+            ["--accent" as any]: "#6D28D9",      // violet premium
+            ["--accentSoft" as any]: "#F3E8FF",  // violet très léger
+          }}
+        >
 
         <Header />
-        <main style={{ maxWidth: 980, margin: "0 auto", padding: "32px 20px" }}>
+        <main style={{ padding: "56px 0" }}>{children}</main>
+          
 
-          {children}
-        </main>
         <Footer />
       </body>
     </html>

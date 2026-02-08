@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Container from "../../components/Container";
+import Card from "../../components/Card";
+import Button from "../../components/Button";
 
 export const metadata: Metadata = {
   title: "À propos | YANIS",
@@ -11,86 +14,119 @@ const WHATSAPP_URL =
 
 export default function AproposPage() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-      <section style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <h1 style={{ margin: 0, fontSize: 34, lineHeight: 1.15 }}>
-          À propos
-        </h1>
-        <p style={{ margin: 0, fontSize: 18, opacity: 0.9, maxWidth: 950 }}>
-          Je suis <strong>YANIS</strong>, consultant en{" "}
-          <strong>stratégie digitale & projets numériques</strong>. J’aide les PME
-          en Tunisie à clarifier leurs décisions digitales, prioriser les actions
-          utiles et obtenir des résultats concrets.
-        </p>
-      </section>
+    <Container>
+      <div className="flex flex-col gap-12 py-2">
+        {/* HERO */}
+        <section className="flex flex-col gap-4">
+          <div className="inline-flex w-fit items-center rounded-full border border-[rgba(109,40,217,0.20)] bg-[var(--accentSoft)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
+            Consultant • Stratégie digitale • Projets numériques
+          </div>
 
-      <section style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <h2 style={{ margin: 0 }}>Mon approche</h2>
-        <p style={{ margin: 0, opacity: 0.9, maxWidth: 980 }}>
-          Je pars toujours du <strong>business avant les outils</strong> :
-          objectifs, clients, budget, délais. Ensuite, je définis une stratégie
-          digitale réaliste et actionnable, adaptée au contexte tunisien.
-        </p>
-        <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>
-          <li>Clarté : un objectif principal, un plan simple</li>
-          <li>Priorités : quick wins + actions structurantes</li>
-          <li>Mesure : KPI concrets et suivi</li>
-          <li>Exécution possible : collectif agile mobilisable si besoin</li>
-        </ul>
-      </section>
+          <h1 className="text-4xl font-extrabold tracking-tight text-neutral-900 md:text-5xl">
+            À propos
+          </h1>
 
-      <section style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <h2 style={{ margin: 0 }}>Crédibilité (en bref)</h2>
-        <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>
-          <li>+10 ans d’expérience dans des environnements structurés</li>
-          <li>Pilotage de projets numériques et coordination des parties prenantes</li>
-          <li>Habitude de cadrer, documenter et livrer avec méthode</li>
-          <li>Double culture : projets publics & besoins PME (pragmatique)</li>
-        </ul>
-      </section>
-
-      <section style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <h2 style={{ margin: 0 }}>Cas réel – Idéal Informatique</h2>
-        <div style={{ border: "1px solid #eee", borderRadius: 14, padding: 16 }}>
-          <p style={{ margin: 0, opacity: 0.9 }}>
-            Accompagnement stratégique digital : diagnostic, positionnement,
-            recommandations concrètes et feuille de route exploitable
-            immédiatement pour développer la présence digitale B2B.
+          <p className="max-w-3xl text-lg leading-relaxed text-neutral-700">
+            Je suis <span className="font-semibold text-neutral-900">YANIS</span>,
+            consultant en{" "}
+            <span className="font-semibold text-neutral-900">
+              stratégie digitale & projets numériques
+            </span>
+            . J’aide les PME en Tunisie à clarifier leurs priorités et obtenir des
+            résultats concrets, sans dépenses inutiles.
           </p>
-        </div>
-      </section>
 
-      <section
-        style={{
-          border: "1px solid #eee",
-          borderRadius: 16,
-          padding: 18,
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-        }}
-      >
-        <strong>Vous voulez savoir quoi faire en premier ?</strong>
-        <p style={{ margin: 0, opacity: 0.9 }}>
-          Envoyez-moi ces 5 infos (activité, objectif, canal actuel, budget,
-          urgence) et je vous réponds avec les premières priorités.
-        </p>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            alignSelf: "flex-start",
-            padding: "12px 16px",
-            borderRadius: 12,
-            border: "1px solid #111",
-            textDecoration: "none",
-            fontWeight: 700,
-          }}
-        >
-          Diagnostic gratuit sur WhatsApp
-        </a>
-      </section>
-    </div>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button href={WHATSAPP_URL} variant="primary" external>
+              Diagnostic gratuit sur WhatsApp
+            </Button>
+            <Button href="/offre" variant="secondary">
+              Voir l’offre
+            </Button>
+          </div>
+        </section>
+
+        {/* APPROCHE */}
+        <section className="flex flex-col gap-4">
+          <h2 className="text-2xl font-bold text-neutral-900">Mon approche</h2>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <Card>
+              <div className="text-sm font-semibold text-neutral-900">
+                Business d’abord
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+                Objectifs, offre, clients, budget, délais. Ensuite seulement on
+                choisit les canaux et les outils.
+              </p>
+            </Card>
+
+            <Card>
+              <div className="text-sm font-semibold text-neutral-900">
+                Priorités & quick wins
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+                Un plan simple : actions rapides + actions structurantes, dans le
+                bon ordre.
+              </p>
+            </Card>
+
+            <Card>
+              <div className="text-sm font-semibold text-neutral-900">
+                Mesure & itération
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+                KPI clairs (visibilité, demandes, conversion) et ajustements
+                mensuels.
+              </p>
+            </Card>
+          </div>
+        </section>
+
+        {/* CREDIBILITE + CAS */}
+        <section className="grid gap-4 md:grid-cols-2">
+          <Card>
+            <div className="text-sm font-semibold text-neutral-900">
+              Crédibilité (en bref)
+            </div>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-neutral-700">
+              <li>Expérience en environnements structurés et projets digitaux</li>
+              <li>Habitude de cadrer, documenter et piloter</li>
+              <li>Double lecture : public (process) & PME (ROI rapide)</li>
+              <li>Possibilité de mobiliser un collectif agile si besoin</li>
+            </ul>
+          </Card>
+
+          <Card>
+            <div className="text-sm font-semibold text-neutral-900">
+              Cas réel – Idéal Informatique
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+              Accompagnement stratégique digital : diagnostic, positionnement,
+              recommandations concrètes et feuille de route exploitable
+              immédiatement pour développer la présence digitale B2B.
+            </p>
+          </Card>
+        </section>
+
+        {/* CTA */}
+        <section>
+          <Card>
+            <div className="text-base font-semibold text-neutral-900">
+              Vous voulez des priorités claires en 48h ?
+            </div>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-700">
+              Envoyez-moi ces 5 infos (activité, objectif, canal actuel, budget,
+              urgence) et je vous réponds avec les premières priorités.
+            </p>
+            <div className="mt-4">
+              <Button href={WHATSAPP_URL} variant="primary" external>
+                Lancer le diagnostic WhatsApp
+              </Button>
+            </div>
+          </Card>
+        </section>
+      </div>
+    </Container>
   );
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Button from "../components/Button";
 import type { Metadata } from "next";
+import Container from "../components/Container";
+import Card from "../components/Card";
 
 export const metadata: Metadata = {
   title: "YANIS – Stratégie digitale & projets numériques",
@@ -14,23 +16,45 @@ const WHATSAPP_URL =
 
 export default function HomePage() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-      {/* HERO */}
-      <section style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+    <Container>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+
+
+              {/* HERO */}
+              <section style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                <div
+          style={{
+            display: "inline-flex",
+            alignSelf: "flex-start",
+            padding: "6px 10px",
+            borderRadius: 999,
+            border: "1px solid rgba(109,40,217,0.20)",
+            background: "var(--accentSoft)",
+            color: "var(--accent)",
+            fontSize: 13,
+            fontWeight: 700,
+          }}
+
+        >
+          Conseil stratégique • Projets numériques • PME Tunisie
+        </div>
+
         <p style={{ margin: 0, opacity: 0.85, fontWeight: 600 }}>
           Consultant en stratégie digitale & projets numériques
         </p>
 
-        <h1 style={{ margin: 0, fontSize: 40, lineHeight: 1.1 }}>
+       <h1 style={{ margin: 0, fontSize: 52, lineHeight: 1.05, letterSpacing: -1 }}>
           J’aide les PME en Tunisie à transformer le digital en résultats business
         </h1>
 
-        <p style={{ margin: 0, fontSize: 18, opacity: 0.9, maxWidth: 900 }}>
-          Diagnostic, priorisation et feuille de route claire pour gagner en
-          visibilité, crédibilité et demandes qualifiées — sans dépenses inutiles.
-        </p>
 
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+        <p style={{ margin: 0, fontSize: 18, opacity: 0.9, maxWidth: 880, lineHeight: 1.6 }}>
+            Diagnostic, priorisation et feuille de route claire pour gagner en visibilité,
+            crédibilité et demandes qualifiées — sans dépenses inutiles.
+          </p>
+
+
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 10 }}>
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -83,48 +107,46 @@ export default function HomePage() {
       {/* PREUVE */}
       <section style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         <h2 style={{ margin: 0 }}>Cas réel</h2>
-        <div style={{ border: "1px solid #eee", borderRadius: 14, padding: 16 }}>
+
+          <Card>
+
           <strong>Idéal Informatique (PME IT)</strong>
           <p style={{ margin: "8px 0 0 0", opacity: 0.9 }}>
             Accompagnement stratégique : diagnostic, positionnement, recommandations
             et feuille de route exploitable immédiatement pour développer la
             présence digitale B2B.
           </p>
-        </div>
+        </Card>
       </section>
 
       {/* CTA FINAL */}
-      <section
-        style={{
-          border: "1px solid #eee",
-          borderRadius: 16,
-          padding: 18,
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-        }}
-      >
-        <strong>Vous voulez des priorités claires et actionnables ?</strong>
-        <p style={{ margin: 0, opacity: 0.9 }}>
-          Envoyez-moi ces 5 infos (activité, objectif, canal actuel, budget,
-          urgence) et je vous réponds avec les premières recommandations.
-        </p>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            alignSelf: "flex-start",
-            padding: "12px 16px",
-            borderRadius: 12,
-            border: "1px solid #111",
-            textDecoration: "none",
-            fontWeight: 700,
-          }}
-        >
-          Diagnostic gratuit sur WhatsApp
-        </a>
-      </section>
+        <Card>
+          <strong>Vous voulez des priorités claires et actionnables ?</strong>
+          <p style={{ margin: "8px 0 16px", opacity: 0.9 }}>
+            Envoyez-moi ces 5 infos (activité, objectif, canal actuel, budget,
+            urgence) et je vous réponds avec les premières recommandations.
+          </p>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              marginTop: 4,
+              alignSelf: "flex-start",
+              padding: "12px 16px",
+              borderRadius: 14,
+              background: "#111",
+              color: "#fff",
+              textDecoration: "none",
+              fontWeight: 700,
+              boxShadow: "0 10px 24px rgba(0,0,0,0.10)",
+            }}
+          >
+            Diagnostic gratuit sur WhatsApp
+          </a>
+        </Card>
+
     </div>
+    </Container>
   );
 }

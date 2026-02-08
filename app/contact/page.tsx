@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Container from "../../components/Container";
+import Card from "../../components/Card";
+import Button from "../../components/Button";
 
 export const metadata: Metadata = {
   title: "Contact | YANIS",
@@ -14,91 +17,83 @@ const MAILTO = `mailto:${EMAIL}?subject=Demande%20de%20diagnostic%20digital%20PM
 
 export default function ContactPage() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-      <section style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <h1 style={{ margin: 0, fontSize: 34, lineHeight: 1.15 }}>Contact</h1>
-        <p style={{ margin: 0, fontSize: 18, opacity: 0.9, maxWidth: 950 }}>
-          Le plus simple : envoyez-moi un message WhatsApp avec 5 infos (activité,
-          objectif, canal actuel, budget, urgence). Je réponds rapidement avec les
-          premières priorités.
-        </p>
-      </section>
+    <Container>
+      <div className="flex flex-col gap-12 py-2">
+        {/* HERO */}
+        <section className="flex flex-col gap-4">
+          <div className="inline-flex w-fit items-center rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-semibold text-neutral-700">
+            Réponse rapide • WhatsApp recommandé
+          </div>
 
-      <section
-        style={{
-          border: "1px solid #eee",
-          borderRadius: 16,
-          padding: 18,
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-        }}
-      >
-        <strong>Option 1 (recommandée) : WhatsApp</strong>
-        <p style={{ margin: 0, opacity: 0.9 }}>
-          Diagnostic guidé en 2 minutes. Parfait pour démarrer vite.
-        </p>
+          <h1 className="text-4xl font-extrabold tracking-tight text-neutral-900 md:text-5xl">
+            Contact
+          </h1>
 
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            alignSelf: "flex-start",
-            padding: "12px 16px",
-            borderRadius: 12,
-            border: "1px solid #111",
-            textDecoration: "none",
-            fontWeight: 700,
-          }}
-        >
-          Ouvrir WhatsApp (diagnostic gratuit)
-        </a>
+          <p className="max-w-3xl text-lg leading-relaxed text-neutral-700">
+            Le plus simple : envoyez-moi un message WhatsApp avec 5 infos
+            (activité, objectif, canal actuel, budget, urgence). Je vous réponds
+            rapidement avec les premières priorités.
+          </p>
+        </section>
 
-        <div style={{ opacity: 0.85, fontSize: 14 }}>
-          📞 +216 50 435 185
-        </div>
-      </section>
+        {/* OPTIONS */}
+        <section className="grid gap-4 md:grid-cols-2">
+          <Card>
+            <div className="text-base font-semibold text-neutral-900">
+              Option 1 (recommandée) : WhatsApp
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+              Diagnostic guidé en 2 minutes. Parfait pour démarrer vite.
+            </p>
 
-      <section
-        style={{
-          border: "1px solid #eee",
-          borderRadius: 16,
-          padding: 18,
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-        }}
-      >
-        <strong>Option 2 : Email</strong>
-        <p style={{ margin: 0, opacity: 0.9 }}>
-          Si vous préférez l’email, envoyez votre demande avec : activité, ville,
-          objectif, situation actuelle, budget et délai.
-        </p>
+            <div className="mt-4">
+              <Button href={WHATSAPP_URL} variant="primary" external>
+                Ouvrir WhatsApp (diagnostic gratuit)
+              </Button>
+            </div>
 
-        <a
-          href={MAILTO}
-          style={{
-            alignSelf: "flex-start",
-            padding: "12px 16px",
-            borderRadius: 12,
-            border: "1px solid #111",
-            textDecoration: "none",
-            fontWeight: 700,
-          }}
-        >
-          Envoyer un email
-        </a>
+            <div className="mt-3 text-sm text-neutral-700">
+              📞 <span className="font-semibold text-neutral-900">+216 50 435 185</span>
+            </div>
+          </Card>
 
-        <div style={{ opacity: 0.85, fontSize: 14 }}>📩 {EMAIL}</div>
-      </section>
+          <Card>
+            <div className="text-base font-semibold text-neutral-900">
+              Option 2 : Email
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+              Si vous préférez l’email, envoyez : activité, ville, objectif,
+              situation actuelle, budget et délai.
+            </p>
 
-      <section style={{ opacity: 0.8, fontSize: 14 }}>
-        <p style={{ margin: 0 }}>
-          <strong>Secteurs :</strong> Services B2B • Commerce/Distribution •
-          Formation/Santé • Immobilier • IT/Startups
-        </p>
-      </section>
-    </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Button href={MAILTO} variant="secondary" external>
+                Envoyer un email
+              </Button>
+              <Button href="/offre" variant="secondary">
+                Voir l’offre
+              </Button>
+            </div>
+
+            <div className="mt-3 text-sm text-neutral-700">
+              📩 <span className="font-semibold text-neutral-900">{EMAIL}</span>
+            </div>
+          </Card>
+        </section>
+
+        {/* FOOT NOTE */}
+        <section>
+          <Card>
+            <div className="text-base font-semibold text-neutral-900">
+              Secteurs
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+              Services B2B • Commerce/Distribution • Formation/Santé • Immobilier •
+              IT/Startups
+            </p>
+          </Card>
+        </section>
+      </div>
+    </Container>
   );
 }
