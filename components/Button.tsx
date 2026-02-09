@@ -1,45 +1,35 @@
-"use client";
+import React from "react";
 
 type ButtonProps = {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary";
+  full?: boolean; // ✅ ajout
+  className?: string; // ✅ pratique si tu utilises tailwind
+  target?: string;
+  rel?: string;
 };
 
 export default function Button({
   href,
   children,
   variant = "primary",
+  full = false,
+  className = "",
+  target = "_blank",
+  rel = "noreferrer",
 }: ButtonProps) {
-  const isWhatsApp = href.includes("wa.me") || href.toLowerCase().includes("whatsapp");
-
   const base =
-    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition";
+    "inline-flex items-center justify-center rounded-xl px-4 py-3 font-semibold transition " +
+    (full ? "w-full " : "");
 
   const styles =
     variant === "primary"
       ? "bg-neutral-900 text-white hover:bg-neutral-800"
-      : "border border-neutral-300 text-neutral-900 hover:bg-neutral-50";
-
-  const handleClick = () => {
-    if (!isWhatsApp) return;
-
-    // GA4 (si la balise est bien chargée)
-    // @ts-ignore
-    window.gtag?.("event", "whatsapp_click", {
-      event_category: "conversion",
-      event_label: "CTA WhatsApp",
-    });
-  };
+      : "bg-white text-neutral-900 border border-neutral-200 hover:bg-neutral-50";
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className={`${base} ${styles}`}
-      onClick={handleClick}
-    >
+    <a href={href} target={target} rel={rel} className={`${base} ${styles} ${className}`}>
       {children}
     </a>
   );
