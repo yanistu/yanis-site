@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Container from "../../components/Container";
-import Button from "../../components/Button";
+import Card from "../../components/Card";
 
 export const metadata: Metadata = {
   title: "Offre – Accompagnement stratégique digital | YANIS",
   description:
-    "Diagnostic, stratégie, plan d’action priorisé (90 jours) et KPI. Accompagnement pragmatique pour PME en Tunisie.",
+    "Diagnostic, priorisation, plan d’action 90 jours et KPI. Accompagnement pragmatique pour PME en Tunisie.",
 };
 
 const WHATSAPP_URL =
@@ -14,112 +14,137 @@ const WHATSAPP_URL =
 export default function OffrePage() {
   return (
     <Container>
-      <div className="py-6 sm:py-10">
-        {/* HERO */}
-        <div className="space-y-4">
-          <div className="inline-flex items-center rounded-full border bg-white px-3 py-1 text-xs font-semibold text-gray-700">
-            Accompagnement PME • Stratégie • Priorisation • KPI
+      <div className="flex flex-col gap-10">
+        <section className="flex flex-col gap-4">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-semibold text-neutral-700">
+            Offre • Accompagnement PME
           </div>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             Accompagnement stratégique digital (PME)
           </h1>
 
-          <p className="max-w-3xl text-base text-gray-700 sm:text-lg">
-            Je vous aide à prendre de meilleures décisions digitales : positionnement,
-            priorités, plan d’action et KPI. L’objectif : obtenir des résultats
-            concrets sans vous disperser.
+          <p className="max-w-3xl text-base leading-relaxed text-neutral-600">
+            Je vous aide à prendre de meilleures décisions digitales :
+            positionnement, priorités, plan d’action et KPI. L’objectif : obtenir
+            des résultats concrets sans vous disperser.
           </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href={WHATSAPP_URL} variant="primary">
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-neutral-900 px-5 py-3 text-sm font-extrabold text-white shadow-sm transition hover:opacity-95 sm:w-auto"
+            >
               Demander un diagnostic gratuit
-            </Button>
-
-            <Button href="/contact" variant="secondary">
-              Me contacter
-            </Button>
+            </a>
+            <a
+              href="#livrables"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-neutral-300 bg-white px-5 py-3 text-sm font-extrabold text-neutral-900 shadow-sm transition hover:bg-neutral-50 sm:w-auto"
+            >
+              Voir les livrables
+            </a>
           </div>
-        </div>
-
-        {/* PROBLÈMES */}
-        <section className="mt-10 space-y-4">
-          <h2 className="text-xl font-bold text-gray-900">
-            Problèmes que je règle souvent
-          </h2>
-
-          <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 sm:text-base">
-            <li>“On est invisible en ligne, on dépend du bouche-à-oreille.”</li>
-            <li>“On a un site / une page Facebook, mais ça ne génère pas de demandes.”</li>
-            <li>“On ne sait pas quoi prioriser (site, réseaux, pub, SEO…).”</li>
-            <li>“On a essayé des actions, mais sans méthode ni résultats mesurables.”</li>
-          </ul>
         </section>
 
-        {/* CE QUE JE FAIS */}
-        <section className="mt-10 space-y-4">
-          <h2 className="text-xl font-bold text-gray-900">
+        <section className="grid gap-4 lg:grid-cols-2">
+          <Card>
+            <h2 className="text-xl font-extrabold text-neutral-900">
+              Cet accompagnement est fait pour vous si…
+            </h2>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700">
+              <li>Vous voulez structurer / améliorer votre présence digitale</li>
+              <li>Vous cherchez de la clarté, des priorités et des KPI</li>
+              <li>Vous voulez des résultats business (pas “juste être présent”)</li>
+              <li>Vous voulez éviter les dépenses inutiles</li>
+            </ul>
+          </Card>
+
+          <Card>
+            <h2 className="text-xl font-extrabold text-neutral-900">
+              Ce n’est pas pour vous si…
+            </h2>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700">
+              <li>Vous cherchez une solution magique sans réflexion</li>
+              <li>Vous voulez “tout faire” sans priorités</li>
+              <li>Vous cherchez un exécutant sans stratégie</li>
+              <li>Vous n’êtes pas prêt à mesurer (KPI)</li>
+            </ul>
+          </Card>
+        </section>
+
+        <section className="flex flex-col gap-4">
+          <h2 className="text-2xl font-extrabold tracking-tight text-neutral-900">
             Ce que je fais concrètement
           </h2>
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border bg-white p-5 shadow-sm">
-              <p className="font-semibold text-gray-900">1) Diagnostic</p>
-              <p className="mt-2 text-sm text-gray-700">
-                Analyse de votre situation : visibilité, message, concurrence, parcours
-                client, canaux actuels.
+          <div className="grid gap-4 lg:grid-cols-3">
+            <Card>
+              <div className="text-sm font-extrabold text-neutral-900">
+                1) Diagnostic
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                Analyse : visibilité, message, concurrence, parcours client,
+                canaux actuels.
               </p>
-            </div>
+            </Card>
 
-            <div className="rounded-2xl border bg-white p-5 shadow-sm">
-              <p className="font-semibold text-gray-900">2) Stratégie & priorisation</p>
-              <p className="mt-2 text-sm text-gray-700">
-                Définition d’un plan simple et réaliste : objectifs, cibles, messages,
-                leviers, quick wins et actions structurantes.
+            <Card>
+              <div className="text-sm font-extrabold text-neutral-900">
+                2) Stratégie & priorisation
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                Objectifs, cibles, messages, leviers, quick wins + structure.
               </p>
-            </div>
+            </Card>
 
-            <div className="rounded-2xl border bg-white p-5 shadow-sm">
-              <p className="font-semibold text-gray-900">
-                3) Accompagnement & mise en œuvre
+            <Card>
+              <div className="text-sm font-extrabold text-neutral-900">
+                3) Mise en œuvre (si besoin)
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                Pilotage + collectif agile (web, SEO, contenu, technique) selon
+                vos besoins.
               </p>
-              <p className="mt-2 text-sm text-gray-700">
-                Je pilote la mission et je peux mobiliser un collectif agile (web, SEO,
-                contenu, technique) selon vos besoins.
-              </p>
-            </div>
+            </Card>
           </div>
         </section>
 
-        {/* LIVRABLES */}
-        <section className="mt-10 space-y-4">
-          <h2 className="text-xl font-bold text-gray-900">Livrables</h2>
+        <section id="livrables" className="flex flex-col gap-4">
+          <h2 className="text-2xl font-extrabold tracking-tight text-neutral-900">
+            Livrables
+          </h2>
 
-          <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 sm:text-base">
-            <li>Diagnostic synthétique (points forts / faiblesses / opportunités)</li>
-            <li>Plan d’action priorisé (90 jours) + recommandations concrètes</li>
-            <li>Définition des KPI (visibilité, demandes, conversion)</li>
-            <li>Feuille de route claire (qui fait quoi, dans quel ordre)</li>
-          </ul>
+          <Card>
+            <ul className="list-disc space-y-1 pl-5 text-sm text-neutral-700">
+              <li>Diagnostic synthétique (forces / faiblesses / opportunités)</li>
+              <li>Plan d’action priorisé (90 jours) + recommandations concrètes</li>
+              <li>Définition des KPI (visibilité, demandes, conversion)</li>
+              <li>Feuille de route claire (qui fait quoi, dans quel ordre)</li>
+            </ul>
+          </Card>
         </section>
 
-        {/* CTA FINAL (ANTI-OVERLAP) */}
-        <section className="mt-10 rounded-2xl border bg-white p-5 shadow-sm">
-          <div className="space-y-3">
-            <h3 className="text-base font-semibold text-gray-900">
-              Vous voulez des priorités claires et actionnables ?
-            </h3>
+        <section className="rounded-3xl border border-neutral-200 bg-neutral-950 p-6 sm:p-8">
+          <h2 className="text-xl font-extrabold tracking-tight text-white">
+            Vous voulez un plan clair ?
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-200">
+            Envoyez-moi ces 5 infos (activité + ville, objectif, canal actuel,
+            budget, urgence). Je vous réponds rapidement avec les premières
+            priorités.
+          </p>
 
-            <p className="text-sm text-gray-700">
-              Envoyez-moi ces 5 infos (activité, objectif, canal actuel, budget,
-              urgence) et je vous réponds rapidement.
-            </p>
-
-            <div className="pt-1">
-              <Button href={WHATSAPP_URL} variant="primary">
-                Diagnostic gratuit sur WhatsApp
-              </Button>
-            </div>
+          <div className="mt-5">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-extrabold text-neutral-900 shadow-sm transition hover:bg-neutral-100 sm:w-auto"
+            >
+              Diagnostic gratuit sur WhatsApp
+            </a>
           </div>
         </section>
       </div>

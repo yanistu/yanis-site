@@ -1,75 +1,66 @@
+import type { Metadata } from "next";
 import Container from "../../components/Container";
 import Card from "../../components/Card";
-import Button from "../../components/Button";
 
-const WHATSAPP_URL =
-  "https://wa.me/21650435185?text=Bonjour%20Yanis%2C%20je%20souhaite%20un%20diagnostic%20digital%20gratuit.";
+export const metadata: Metadata = {
+  title: "À propos | YANIS",
+  description:
+    "Consultant en stratégie digitale & projets numériques. J’aide les PME à prioriser et obtenir des résultats mesurables.",
+};
 
-export default function AproposPage() {
+export default function AProposPage() {
   return (
     <Container>
-      <div className="space-y-10">
-        <section className="space-y-4">
-          <div className="inline-flex w-fit items-center rounded-full border border-[rgba(109,40,217,0.20)] bg-[var(--accentSoft)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
-            Consultant • Stratégie • Exécution pragmatique
+      <div className="flex flex-col gap-10">
+        <section className="flex flex-col gap-4">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-semibold text-neutral-700">
+            À propos • Positionnement
           </div>
 
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            À propos
+          <h1 className="text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+            Je travaille sur la clarté avant les outils
           </h1>
 
-          <p className="max-w-3xl text-base leading-relaxed text-neutral-700 sm:text-lg">
-            Je suis <span className="font-semibold text-neutral-900">YANIS</span>, consultant
-            en stratégie digitale & projets numériques. J’aide les PME à clarifier leurs
-            priorités et obtenir des résultats concrets, sans dispersion.
+          <p className="max-w-3xl text-base leading-relaxed text-neutral-600">
+            J’ai vu trop de PME perdre du temps et de l’argent sur des actions
+            mal priorisées : sites inutiles, réseaux sans objectif, publicités
+            lancées trop tôt.
           </p>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href={WHATSAPP_URL} variant="primary">
-              Diagnostic gratuit
-            </Button>
-            <Button href="/offre" variant="secondary">
-              Voir l’offre
-            </Button>
-          </div>
         </section>
 
-        <section className="grid gap-4 sm:grid-cols-3">
+        <section className="grid gap-4 lg:grid-cols-2">
           <Card>
-            <div className="text-sm font-semibold">Business d’abord</div>
-            <p className="mt-2 text-sm text-neutral-700">
-              Objectifs, offre, cible, budget, timing → ensuite canaux et outils.
+            <h2 className="text-xl font-extrabold text-neutral-900">
+              Mon rôle
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+              Mon rôle n’est pas de vendre des outils. Mon rôle est de vous aider
+              à voir clair, décider mieux et avancer avec méthode : objectifs,
+              priorités, KPI, feuille de route.
             </p>
           </Card>
-          <Card>
-            <div className="text-sm font-semibold">Priorisation</div>
-            <p className="mt-2 text-sm text-neutral-700">
-              Plan simple : quick wins + actions structurantes.
-            </p>
-          </Card>
-          <Card>
-            <div className="text-sm font-semibold">Mesure</div>
-            <p className="mt-2 text-sm text-neutral-700">
-              KPI et itérations mensuelles pour optimiser.
-            </p>
-          </Card>
-        </section>
 
-        <section className="grid gap-4 sm:grid-cols-2">
           <Card>
-            <div className="text-sm font-semibold">Crédibilité</div>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-neutral-700">
-              <li>Cadrage, documentation, pilotage</li>
-              <li>Approche pragmatique orientée ROI</li>
-              <li>Collectif possible si besoin (web/SEO/contenu)</li>
+            <h2 className="text-xl font-extrabold text-neutral-900">
+              Ce que vous obtenez
+            </h2>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700">
+              <li>Un diagnostic clair</li>
+              <li>Un plan d’action réaliste (90 jours)</li>
+              <li>Des KPI simples à suivre</li>
+              <li>Des recommandations concrètes (pas de théorie)</li>
             </ul>
           </Card>
-          <Card>
-            <div className="text-sm font-semibold">Secteurs</div>
-            <p className="mt-2 text-sm text-neutral-700">
-              Services B2B • Commerce/Distribution • Formation • Immobilier • IT
-            </p>
-          </Card>
+        </section>
+
+        <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8">
+          <h2 className="text-xl font-extrabold text-neutral-900">
+            Une règle simple
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+            Si je pense que le digital n’est pas la priorité pour vous maintenant,
+            je vous le dirai. La clarté avant tout.
+          </p>
         </section>
       </div>
     </Container>
