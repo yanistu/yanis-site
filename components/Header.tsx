@@ -37,7 +37,7 @@ export default function Header() {
                 {i.label}
               </Link>
             ))}
-            <Button href={WHATSAPP_URL} variant="primary" full={false}>
+            <Button href="/diagnostic" variant="primary" full={false}>
               Diagnostic gratuit
             </Button>
           </nav>

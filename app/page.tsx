@@ -37,7 +37,7 @@ export default function HomePage() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href={WHATSAPP_URL}
+                href="/diagnostic"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-xl bg-neutral-900 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:opacity-95 sm:w-auto"
@@ -178,7 +178,7 @@ export default function HomePage() {
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a
-              href={WHATSAPP_URL}
+              href="/diagnostic"
               target="_blank"
               rel="noreferrer"
               className="inline-flex w-full items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-extrabold text-neutral-900 shadow-sm transition hover:bg-neutral-100 sm:w-auto"
